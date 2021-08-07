@@ -4,21 +4,22 @@ import EmblemWhite from "./../../assets/icons/emblem_white.png";
 import DropDownMenu from "../common/dropdown-menu/drop-down-menu";
 import { LANGUAGE_DATA } from "./../../utils/constants";
 
-const styles = makeStyles({
+// margin: theme.typography.pxToRem(100)
+const useStyles = makeStyles((theme) => ({
   amblem: {
-    padding: "0.7rem 0.5rem",
+    padding: `${theme.typography.pxToRem(8)} ${theme.typography.pxToRem(8)}`,
     display: "flex",
   },
   logo: {
-    width: "2.5em",
-    height: "2.5em",
+    width: `${theme.typography.pxToRem(40)}`,
+    height: `${theme.typography.pxToRem(40)}`,
   },
-});
+}));
 
 const Header: React.FC = () => {
-  const classes = styles();
+  const classes = useStyles();
   return (
-    <AppBar color="primary" position="fixed">
+    <AppBar color="primary">
       <Grid container>
         <Grid item md={2} xs={false}></Grid>
         <Grid
