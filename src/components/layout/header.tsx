@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 const Header: React.FC = () => {
   const classes = useStyles();
   return (
-    <AppBar color="primary" position="fixed" elevation={0}>
+    <AppBar color="primary" position="static" elevation={0}>
       <Grid container>
         <Grid item md={2} xs={false}></Grid>
         <Grid

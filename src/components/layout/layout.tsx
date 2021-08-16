@@ -1,15 +1,9 @@
-import {
-  Container,
-  Grid,
-  makeStyles,
-  Paper,
-  Typography,
-} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import React from "react";
 import Main from "./main";
 import Footer from "./footer";
 import Header from "./header";
-import Theme from "./../../mui/theme";
+import HeaderBand from "./header-band";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,6 +27,9 @@ const Layout: React.FC = () => {
     <div className={classes.root}>
       <div className={classes.header}>
         <Header />
+      </div>
+      <div>
+        <HeaderBand />
       </div>
       <div className={classes.main}>
         <Main />
