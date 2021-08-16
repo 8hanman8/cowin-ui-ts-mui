@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
 const Footer: React.FC = () => {
   const classes = useStyles();
   return (
-    <AppBar color="primary" position="static" className={classes.root}>
+    <AppBar color="primary" position="static" className={classes.root} elevation={0}>
       <Grid
         container
         justifyContent="center"

@@ -5,12 +5,14 @@ import store from "./redux/store";
 import Theme from "./mui/theme";
 import "./App.css";
 import Layout from "./components/layout/layout";
-import '@fontsource/roboto';
+import "@fontsource/roboto";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={Theme}>
+        <CssBaseline />
         <Layout />
       </ThemeProvider>
     </Provider>

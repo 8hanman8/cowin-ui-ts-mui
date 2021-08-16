@@ -1,8 +1,8 @@
 import React from "react";
 import { AppBar, Grid, Typography, makeStyles } from "@material-ui/core";
-import EmblemWhite from "./../../assets/icons/emblem_white.png";
 import DropDownMenu from "../common/dropdown-menu/drop-down-menu";
 import { LANGUAGE_DATA } from "./../../utils/constants";
+import EmblemGov from "./../../assets/icons/emblem-gov.svg";
 
 // margin: theme.typography.pxToRem(100)
 const useStyles = makeStyles((theme) => ({
@@ -11,46 +11,48 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   logo: {
-    width: `${theme.typography.pxToRem(40)}`,
-    height: `${theme.typography.pxToRem(40)}`,
+    width: `${theme.typography.pxToRem(23)}`,
+    height: `${theme.typography.pxToRem(37)}`,
   },
+  lanBar: {
+    paddingRight: `${theme.typography.pxToRem(15)}`,
+  }
 }));
 
 const Header: React.FC = () => {
   const classes = useStyles();
   return (
-    <AppBar color="primary">
+    <AppBar color="primary" position="fixed" elevation={0}>
       <Grid container>
         <Grid item md={2} xs={false}></Grid>
         <Grid
           item
-          md={2}
+          md={4}
           xs={8}
           className={classes.amblem}
           justifyContent="center"
           alignItems="center"
         >
-          <img src={EmblemWhite} className={classes.logo} alt="emblem" />
+          <img src={EmblemGov} className={classes.logo} alt="emblem" />
           <Typography style={{ marginLeft: "0.6rem" }} variant="subtitle2">
             Ministry of Health and Family Welfare
           </Typography>
         </Grid>
-        <Grid item md={2} xs={false}></Grid>
-        <Grid item md={2} xs={false}></Grid>
-        <Grid item md={2} xs={false}></Grid>
         <Grid
           item
-          md={2}
+          md={4}
           xs={4}
-          justifyContent="center"
+          justifyContent="flex-end"
           alignItems="center"
-          style={{ display: "flex", justifyContent: "center" }}
+          container
+          className={classes.lanBar}
         >
           <DropDownMenu
             title={LANGUAGE_DATA.title}
             menuOptions={LANGUAGE_DATA.menuOptions}
           ></DropDownMenu>
         </Grid>
+        <Grid item md={2} xs={false}></Grid>
       </Grid>
     </AppBar>
   );
