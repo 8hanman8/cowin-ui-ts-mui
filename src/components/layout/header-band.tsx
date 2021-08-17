@@ -1,4 +1,4 @@
-import { AppBar, Grid, Box } from "@material-ui/core";
+import { AppBar, Grid, Box, Hidden, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import Covid19logo from "../../assets/icons/covid19logo.jpg";
@@ -9,6 +9,7 @@ import {
   RESOURCES_DROPDOWN_DATA,
   SUPPORT_DROPDOWN_DATA,
 } from "./../registration/registration-utils";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,43 +34,56 @@ function HeaderBand() {
     <AppBar position="static" className={classes.root} elevation={1}>
       <Grid container>
         <Grid item md={2} xs={false}></Grid>
-        <Grid item md={3} xs={12} container justifyContent="center">
+        <Grid item md={3} xs={8} container justifyContent="center">
           <img src={Covid19logo} alt="logo" className={classes.logo} />
         </Grid>
-        <Grid item md={5} xs={false}>
-          <Box
-            display="flex"
-            flexDirection="row"
-            justifyContent="space-around"
+        <Hidden only={["xs"]}>
+          <Grid item md={5} xs={false}>
+            <Box
+              display="flex"
+              flexDirection="row"
+              justifyContent="space-around"
+              alignItems="center"
+              className={classes.dropDownContainer}
+            >
+              <Box className={classes.dropDown}>
+                <DropDownMenu
+                  title={VACCINATION_SERVICES_DROPDOWN_DATA.title}
+                  menuOptions={VACCINATION_SERVICES_DROPDOWN_DATA.menuOptions}
+                />
+              </Box>
+              <Box className={classes.dropDown}>
+                <DropDownMenu
+                  title={PLATFORMS_DROPDOWN_DATA.title}
+                  menuOptions={PLATFORMS_DROPDOWN_DATA.menuOptions}
+                ></DropDownMenu>
+              </Box>
+              <Box className={classes.dropDown} alignSelf="center">
+                <DropDownMenu
+                  title={RESOURCES_DROPDOWN_DATA.title}
+                  menuOptions={RESOURCES_DROPDOWN_DATA.menuOptions}
+                />
+              </Box>
+              <Box className={classes.dropDown}>
+                <DropDownMenu
+                  title={SUPPORT_DROPDOWN_DATA.title}
+                  menuOptions={SUPPORT_DROPDOWN_DATA.menuOptions}
+                />
+              </Box>
+            </Box>
+          </Grid>
+        </Hidden>
+        <Hidden smUp>
+          <Grid
+            item
+            xs={4}
+            container
+            justifyContent="center"
             alignItems="center"
-            className={classes.dropDownContainer}
           >
-            <Box className={classes.dropDown}>
-              <DropDownMenu
-                title={VACCINATION_SERVICES_DROPDOWN_DATA.title}
-                menuOptions={VACCINATION_SERVICES_DROPDOWN_DATA.menuOptions}
-              />
-            </Box>
-            <Box className={classes.dropDown}>
-              <DropDownMenu
-                title={PLATFORMS_DROPDOWN_DATA.title}
-                menuOptions={PLATFORMS_DROPDOWN_DATA.menuOptions}
-              ></DropDownMenu>
-            </Box>
-            <Box className={classes.dropDown} alignSelf="center">
-              <DropDownMenu
-                title={RESOURCES_DROPDOWN_DATA.title}
-                menuOptions={RESOURCES_DROPDOWN_DATA.menuOptions}
-              />
-            </Box>
-            <Box className={classes.dropDown}>
-              <DropDownMenu
-                title={SUPPORT_DROPDOWN_DATA.title}
-                menuOptions={SUPPORT_DROPDOWN_DATA.menuOptions}
-              />
-            </Box>
-          </Box>
-        </Grid>
+            <MenuIcon color="primary" fontSize="large"/>
+          </Grid>
+        </Hidden>
         <Grid item md={2} xs={false}></Grid>
       </Grid>
     </AppBar>
