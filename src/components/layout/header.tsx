@@ -30,8 +30,6 @@ const Header: React.FC = () => {
           md={4}
           xs={8}
           className={classes.amblem}
-          justifyContent="center"
-          alignItems="center"
         >
           <img src={EmblemGov} className={classes.logo} alt="emblem" />
           <Typography style={{ marginLeft: "0.6rem" }} variant="subtitle2">

@@ -1,6 +1,6 @@
-import { AppBar, Grid, Box, Hidden, Typography } from "@material-ui/core";
+import { AppBar, Grid, Box, Hidden, Menu, MenuItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React from "react";
+import React, { useState } from "react";
 import Covid19logo from "../../assets/icons/covid19logo.jpg";
 import DropDownMenu from "../common/dropdown-menu/drop-down-menu";
 import {
@@ -30,6 +30,13 @@ const useStyles = makeStyles((theme) => ({
 
 function HeaderBand() {
   const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState<null | SVGSVGElement>(null);
+  const handleClick = (event: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <AppBar position="static" className={classes.root} elevation={1}>
       <Grid container>
@@ -81,7 +88,17 @@ function HeaderBand() {
             justifyContent="center"
             alignItems="center"
           >
-            <MenuIcon color="primary" fontSize="large"/>
+            <MenuIcon color="primary" fontSize="large" onClick={handleClick} />
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem>Vaccination Services</MenuItem>
+              <MenuItem>Platforms</MenuItem>
+              <MenuItem>Resources</MenuItem>
+              <MenuItem>Support</MenuItem>
+            </Menu>
           </Grid>
         </Hidden>
         <Grid item md={2} xs={false}></Grid>
