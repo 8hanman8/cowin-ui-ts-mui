@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
   main: {
     flexGrow: 1,
     flexShrink: 1,
+    overflow: "auto",
+    backgroundColor: "#f6f6f6",
+    marginTop: theme.typography.pxToRem(2),
   },
   footer: {
     // height: theme.typography.pxToRem(20),
