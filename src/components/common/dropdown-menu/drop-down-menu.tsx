@@ -1,8 +1,6 @@
 import { useState } from "react";
 import styles from "./drop-down-menu.module.css";
-import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({}));
 
 interface DropDownOption {
   readonly key: string;
@@ -16,7 +14,6 @@ interface DropDownMenuData {
 }
 
 function DropDownMenu(props: DropDownMenuData) {
-  const classes = useStyles();
   const { title, menuOptions, onChange, ...rest } = props;
   const [state, setState] = useState<{ openPopup: boolean }>({
     openPopup: false,

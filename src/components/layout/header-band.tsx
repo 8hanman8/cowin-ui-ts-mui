@@ -1,6 +1,6 @@
 import { AppBar, Grid, Box, Hidden, Menu, MenuItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React, { useState } from "react";
+import React from "react";
 import Covid19logo from "../../assets/icons/covid19logo.jpg";
 import DropDownMenu from "../common/dropdown-menu/drop-down-menu";
 import {

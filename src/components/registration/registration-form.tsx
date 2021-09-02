@@ -24,7 +24,17 @@ const useStyles = makeStyles((theme) => ({
     )} 0 rgb(0 0 0 / 19%)`,
     margin: "0 auto",
     position: "relative",
-    top: theme.typography.pxToRem(-45),
+    [theme.breakpoints.up("sm")]: {
+      top: theme.typography.pxToRem(-45),
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginTop: theme.typography.pxToRem(20),
+    },
+  },
+  formContainer: {
+    [theme.breakpoints.down("sm")]: {
+      marginTop: theme.typography.pxToRem(20),
+    },
   },
 }));
 
@@ -41,7 +51,7 @@ function RegistrationForm(props: RegistrationFormProps) {
           className={classes.bannerContainerImg}
         ></img>
       </div>
-      <div>
+      <div className={classes.formContainer}>
         <SignInForm />
       </div>
     </Paper>

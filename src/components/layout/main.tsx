@@ -6,7 +6,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     height: "100%",
-    margin: `${theme.typography.pxToRem(75)} 0`,
+    [theme.breakpoints.up("sm")]: {
+      margin: `${theme.typography.pxToRem(75)} 0`,
+    },
   },
 }));
 
